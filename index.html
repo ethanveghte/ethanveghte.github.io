@@ -13,7 +13,16 @@
             'https://www.fubo.tv/profiles',
             'https://chat.openai.com'
         ];
-        let currentIndex = Math.floor(Math.random() * links.length);
+
+        let currentIndex = parseInt(localStorage.getItem('currentIndex'), 10);
+        if (isNaN(currentIndex) || currentIndex >= links.length - 1) {
+            currentIndex = 0;
+        } else {
+            currentIndex++;
+        }
+
+        localStorage.setItem('currentIndex', currentIndex);
+
         window.location.replace(links[currentIndex]);
     </script>
 </body>
