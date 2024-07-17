@@ -14,15 +14,10 @@
             'https://www.surveymonkey.com/r/JX8XRJL'
         ];
 
-        let currentIndex = parseInt(localStorage.getItem('currentIndex'), 10);
-        if (isNaN(currentIndex) || currentIndex >= links.length - 1) {
-            currentIndex = 0;
-        } else {
-            currentIndex++;
-        }
+        // Select a random index
+        let currentIndex = Math.floor(Math.random() * links.length);
 
-        localStorage.setItem('currentIndex', currentIndex);
-
+        // Redirect to the selected link
         window.location.replace(links[currentIndex]);
     </script>
 </body>
